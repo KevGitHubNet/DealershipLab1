@@ -15,7 +15,7 @@ namespace DealershipLab1.Models
         public int MPG { get; set; }
         public string color { get; set; }
         public int MSRP { get; set; }
-
+        public string Image { get; set; }
 
     }
     public class AutoDBContext:DbContext

@@ -1,12 +1,22 @@
 ﻿@model IEnumerable<DealershipLab1.Models.AutoModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Cars";
 }
 
-<h2>Index</h2>
+<h2>Cars</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
 
-<p><img src="https://www.google.com/search?biw=1920&bih=971&q=2015+ford+transit&tbm=isch&tbs=simg:CAQSJgnRPStgVGWBohoSCxCwjKcIGgAMCxCOrv4IGgAMITNH2mMjAQwq&sa=X&ved=0CBoQwg4oAGoVChMIkPLJ1u_7xgIV0qWICh2dBAjM#imgrc=VyGMyQV1gAVfmM%3A" alt="" />
+    @using (Html.BeginForm())
+    {
+    <p>
+        Model: @Html.TextBox("SearchString") <br />
+        <input type="submit" value="Filter" />
+    </p>
+    }
+ 
+<p><img src="" alt="" />
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">

@@ -21,15 +21,15 @@ namespace DealershipLab1.Controllers
         //}
         public ActionResult Index(string searchString)
         {
-            var movies = from m in db.AutoModel
+            var AutoModel = from m in db.AutoModel
                          select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                movies = movies.Where(s => s.Model.Contains(searchString));
+                AutoModel = AutoModel.Where(s => s.Model.Contains(searchString));
             }
 
-            return View(movies);
+            return View(AutoModel);
         }
 
         // GET: AutoModels/Details/5
