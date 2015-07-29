@@ -1,5 +1,37 @@
-﻿@{
-    ViewBag.Title = "About";
+﻿@model IEnumerable<DealershipLab1.Models.AutoModel>
+
+@{
+    ViewBag.Title = "Dealership Inventory"; 
+}
+    
+    <h2>Dealership Inventory</h2>
+
+<table>
+    <tr>
+        <th>
+            Year/Make/Model
+        </th>
+        <th>
+            Amount
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Make)
+                </td>
+            <td>
+              
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+  
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>

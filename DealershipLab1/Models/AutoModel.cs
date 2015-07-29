@@ -20,6 +20,6 @@ namespace DealershipLab1.Models
     }
     public class AutoDBContext:DbContext
     {
-        public DbSet<AutoModel> AutoModel { get; set; }
+        public DbSet<AutoModel> AutoModelDataBase { get; set; }
     }
 }

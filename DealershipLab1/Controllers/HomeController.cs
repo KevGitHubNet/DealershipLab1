@@ -1,13 +1,21 @@
-﻿using System;
+﻿using DealershipLab1.AboutPageModels;
+using System;
+using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace DealershipLab1.Controllers
+using DealershipLab1.Models;
+
+
+namespace DealershipLab1.AboutPageModels
 {
     public class HomeController : Controller
     {
+
+        private AutoDBContext db = new AutoDBContext();
+
         public ActionResult Index()
         {
             return View();
@@ -15,9 +23,23 @@ namespace DealershipLab1.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            var GenreLst = new List<string>();
+            var data = from m in db.AutoModelDataBase
+                       orderby m.Make
+                        select m.Make;
 
-            return View();
+            GenreLst.AddRange(data.Distinct()); 
+                       
+                       //group m by m.Make into MakeGroup
+                 
+            /*
+                       new SpecificMakeGroup()
+                       {
+                           Make = MakeGroup.Key,
+                           carCount = MakeGroup.Count()
+                       };
+            */
+            return View(data);
         }
 
         public ActionResult Contact()

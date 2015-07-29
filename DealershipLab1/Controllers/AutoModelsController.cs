@@ -21,7 +21,7 @@ namespace DealershipLab1.Controllers
         //}
         public ActionResult Index(string searchString)
         {
-            var AutoModel = from m in db.AutoModel
+            var AutoModel = from m in db.AutoModelDataBase
                          select m;
 
             if (!String.IsNullOrEmpty(searchString))
@@ -39,7 +39,7 @@ namespace DealershipLab1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AutoModel autoModel = db.AutoModel.Find(id);
+            AutoModel autoModel = db.AutoModelDataBase.Find(id);
             if (autoModel == null)
             {
                 return HttpNotFound();
@@ -62,7 +62,7 @@ namespace DealershipLab1.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.AutoModel.Add(autoModel);
+                db.AutoModelDataBase.Add(autoModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -77,7 +77,7 @@ namespace DealershipLab1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AutoModel autoModel = db.AutoModel.Find(id);
+            AutoModel autoModel = db.AutoModelDataBase.Find(id);
             if (autoModel == null)
             {
                 return HttpNotFound();
@@ -108,7 +108,7 @@ namespace DealershipLab1.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AutoModel autoModel = db.AutoModel.Find(id);
+            AutoModel autoModel = db.AutoModelDataBase.Find(id);
             if (autoModel == null)
             {
                 return HttpNotFound();
@@ -121,8 +121,8 @@ namespace DealershipLab1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            AutoModel autoModel = db.AutoModel.Find(id);
-            db.AutoModel.Remove(autoModel);
+            AutoModel autoModel = db.AutoModelDataBase.Find(id);
+            db.AutoModelDataBase.Remove(autoModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
